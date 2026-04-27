@@ -1,0 +1,45 @@
+{
+  "name": "@smi0001/agentkit",
+  "version": "0.2.0",
+  "description": "Interactive launcher for the @smi0001 family of agents and tools (agent-binod, webhook-playground, and more).",
+  "author": "Shammi Hans",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "agentkit": "dist/index.js",
+    "smi": "dist/index.js"
+  },
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "build": "tsc && chmod +x dist/index.js",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "cli",
+    "agent",
+    "anthropic",
+    "claude",
+    "developer-tools",
+    "interactive",
+    "launcher"
+  ],
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "@smi0001/agent-binod": "^1.1.2",
+    "@smi0001/agent-db-sync": "^0.1.0",
+    "@smi0001/webhook-playground": "^2.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
