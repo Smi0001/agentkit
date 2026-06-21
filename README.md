@@ -10,13 +10,14 @@ npx @smi0001/agentkit
 
 `agentkit` is a thin launcher. It doesn't reimplement any tool — it bundles the existing published packages and gives you a single entry point with a friendly menu.
 
-| ID         | Tool                                                                | Underlying package                                                                              |
-| ---------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `binod`    | AI-powered PR review (Anthropic)                                    | [`@smi0001/agent-binod`](https://www.npmjs.com/package/@smi0001/agent-binod)                    |
-| `webhook`  | Self-hosted webhook capture / inspection server                     | [`@smi0001/webhook-playground`](https://www.npmjs.com/package/@smi0001/webhook-playground)      |
-| `db-sync`  | Sync a remote Postgres DB (sandman/UAT) to local + reconcile Sequelize | [`@smi0001/agent-db-sync`](https://www.npmjs.com/package/@smi0001/agent-db-sync)                |
+| ID         | Tool                                                                       | Underlying package                                                                              |
+| ---------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `binod`    | AI-powered PR review (Anthropic)                                           | [`@smi0001/agent-binod`](https://www.npmjs.com/package/@smi0001/agent-binod)                    |
+| `webhook`  | Self-hosted webhook capture / inspection server                            | [`@smi0001/webhook-playground`](https://www.npmjs.com/package/@smi0001/webhook-playground)      |
+| `db-sync`  | Sync a remote Postgres DB (sandman/UAT) to local + reconcile Sequelize     | [`@smi0001/agent-db-sync`](https://www.npmjs.com/package/@smi0001/agent-db-sync)                |
+| `pintu`    | PR call-graph tracer (TS/JS) — emits Mermaid + YAML artifacts              | [`@smi0001/agent-pintu`](https://www.npmjs.com/package/@smi0001/agent-pintu)                    |
 
-More tools are on the way (doc generator, context builder, PR visualizer, …). Each will land as its own `@smi0001/agent-*` package and get a one-line registration here.
+More tools are on the way (doc generator, context builder, …). Each will land as its own `@smi0001/agent-*` package and get a one-line registration here.
 
 ## Install
 
@@ -30,7 +31,7 @@ agentkit         # interactive menu
 smi              # alias for the same thing
 ```
 
-You can also keep using the underlying tools standalone — `@smi0001/agent-binod`, `@smi0001/webhook-playground`, and `@smi0001/agent-db-sync` are independently published and work the same on their own.
+You can also keep using the underlying tools standalone — `@smi0001/agent-binod`, `@smi0001/webhook-playground`, `@smi0001/agent-db-sync`, and `@smi0001/agent-pintu` are independently published and work the same on their own.
 
 ## Usage
 
@@ -41,6 +42,7 @@ agentkit binod                 # run agent-binod
 agentkit binod --help          # arguments after the id are forwarded to the tool
 agentkit webhook               # start the webhook playground
 agentkit db-sync diff          # any subcommand of agent-db-sync
+agentkit pintu trace --help    # any subcommand of agent-pintu
 agentkit -h                    # help
 ```
 
@@ -84,9 +86,9 @@ Requires Node 22+ (matches the strictest dependency).
 
 - `@smi0001/agent-docgen` — documenting agent
 - `@smi0001/agent-context` — context-making agent for repos
-- `@smi0001/agent-pr-visualize` — turn a PR diff into a pictorial feature summary
 - `@smi0001/agent-core` — extracted shared primitives (prompt UI, Claude Agent SDK loop, config) once enough tools share code
 - LLM-assisted recovery for unknown migration errors in `agent-db-sync`
+- Python / Go support for `agent-pintu` (sibling packages, only when a real project triggers the need)
 
 ## License
 

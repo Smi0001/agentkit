@@ -25,6 +25,14 @@ export const plugins: Plugin[] = [
     binName: 'agent-db-sync',
     argsHint: 'agentkit db-sync [...db-sync args]',
   },
+  {
+    id: 'pintu',
+    name: 'Trace a PR (pintu)',
+    description: 'Static call-graph trace of a PR diff (TS/JS) → Mermaid + YAML artifacts',
+    package: '@smi0001/agent-pintu',
+    binName: 'agent-pintu',
+    argsHint: 'agentkit pintu [...pintu args]',
+  },
 ];
 
 export function findPlugin(idOrName: string): Plugin | undefined {
